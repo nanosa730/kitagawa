@@ -6,12 +6,12 @@
 <title>図解｜何のために学び、働くのか</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FFFFFF; --ink:#161A3A; --ai:#2A3990; --nae:#2F7D32; --hi:#FFD84D; --beni:#C8372D;
   --soft-ai:#ECEFFC; --soft-nae:#E7F4E3; --soft-beni:#FCEAE8; --soft-hi:#FFF6CC;
-  --display:"Dela Gothic One","Hiragino Kaku Gothic StdN","Yu Gothic",sans-serif;
+  --display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
   --body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
@@ -35,45 +35,45 @@ main{max-width:880px;margin:0 auto;padding:0 20px 80px}
 a{color:var(--ai)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ai);outline-offset:3px;border-radius:6px}
 p{margin:0 0 .8em}
-strong{font-weight:900}
+strong{font-weight:700}
 .mark{background:linear-gradient(transparent 58%,var(--hi) 58%);padding:0 .1em}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark{background:linear-gradient(transparent 58%,rgba(255,216,77,.45) 58%)}}
 
 /* ---------- hero ---------- */
 .hero{padding:56px 0 32px;border-bottom:4px solid var(--ink)}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,8vw,64px);line-height:1.2;margin:0 0 28px;letter-spacing:.02em}
+.hero h1{font-family:var(--display);font-weight:700;font-weight:700;font-size:clamp(34px,8vw,64px);line-height:1.2;margin:0 0 28px;letter-spacing:.04em}
 .hero .lead{font-size:15px;margin:0 0 30px}
 .flip{display:grid;gap:10px}
 .flip .old{font-size:clamp(18px,4.2vw,26px);font-weight:700;color:var(--beni)}
 .flip .old s{text-decoration-thickness:3px}
-.flip .new{font-family:var(--display);font-size:clamp(26px,6.4vw,46px);line-height:1.3;color:var(--ai)}
+.flip .new{font-family:var(--display);font-weight:700;font-size:clamp(26px,6.4vw,46px);line-height:1.3;color:var(--ai)}
 .flip .new small{display:block;font-family:var(--body);font-weight:700;font-size:clamp(16px,3.6vw,22px);color:var(--ink);margin-top:4px}
 .core{margin-top:30px;border-left:8px solid var(--nae);padding:6px 0 6px 18px;font-size:17px}
 
 /* ---------- TOC ---------- */
 .toc{margin:34px 0 10px}
-.toc h2{font-size:16px;margin:0 0 10px;font-weight:900}
+.toc h2{font-size:16px;margin:0 0 10px;font-weight:700}
 .toc ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;counter-reset:t}
 .toc li{counter-increment:t}
 .toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:700;font-size:15px;line-height:1.5}
-.toc a::before{content:counter(t);font-family:var(--display);color:var(--ai);font-size:18px;min-width:1.2em}
+.toc a::before{content:counter(t);font-family:var(--display);font-weight:700;color:var(--ai);font-size:18px;min-width:1.2em}
 .toc a:hover{background:var(--soft-ai)}
 
 /* ---------- chapter ---------- */
 .ch{padding-top:64px}
 .ch-head{display:flex;gap:16px;align-items:flex-end;margin-bottom:22px;border-bottom:3px solid var(--ink);padding-bottom:12px}
-.ch-num{font-family:var(--display);font-size:clamp(56px,13vw,96px);line-height:.85;color:transparent;-webkit-text-stroke:2px var(--ai)}
-.ch-head h2{font-family:var(--display);font-weight:400;font-size:clamp(22px,5.2vw,34px);line-height:1.3;margin:0}
+.ch-num{font-family:var(--display);font-weight:700;font-size:clamp(56px,13vw,96px);line-height:.85;color:transparent;-webkit-text-stroke:2px var(--ai)}
+.ch-head h2{font-family:var(--display);font-weight:700;font-weight:700;font-size:clamp(22px,5.2vw,34px);line-height:1.3;margin:0}
 .ch-head h2 small{display:block;font-family:var(--body);font-weight:700;font-size:15px;margin-top:4px}
-h3{font-size:20px;font-weight:900;margin:36px 0 12px;line-height:1.5;display:flex;align-items:center;gap:10px}
+h3{font-size:20px;font-weight:700;margin:36px 0 12px;line-height:1.5;display:flex;align-items:center;gap:10px}
 h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--nae);flex:none}
 .note{font-size:15px;border:2px dashed var(--ink);border-radius:12px;padding:12px 16px;margin:14px 0}
-.quote{font-weight:900;font-size:clamp(18px,4.2vw,23px);line-height:1.6;padding:14px 0 14px 18px;border-left:6px solid var(--ai);margin:18px 0}
+.quote{font-weight:700;font-size:clamp(18px,4.2vw,23px);line-height:1.6;padding:14px 0 14px 18px;border-left:6px solid var(--ai);margin:18px 0}
 
 /* generic flow */
 .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:14px 0}
 .flow .step{flex:1 1 140px;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;font-weight:700;font-size:15px;line-height:1.55;background:var(--paper)}
-.flow .arr{align-self:center;font-family:var(--display);color:var(--ai);font-size:22px;flex:none}
+.flow .arr{align-self:center;font-family:var(--display);font-weight:700;color:var(--ai);font-size:22px;flex:none}
 .step.good{border-color:var(--nae);background:var(--soft-nae)}
 .step.bad{border-color:var(--beni);background:var(--soft-beni)}
 .step.key{border-color:var(--ai);background:var(--soft-ai)}
@@ -82,13 +82,13 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
 @media (max-width:620px){.two{grid-template-columns:1fr}}
 .panel{border:2px solid var(--ink);border-radius:14px;padding:14px 16px;background:var(--paper)}
-.panel h4{margin:0 0 8px;font-size:16px;font-weight:900;line-height:1.5}
+.panel h4{margin:0 0 8px;font-size:16px;font-weight:700;line-height:1.5}
 .panel ul{margin:0;padding-left:1.2em;font-size:15px}
 .panel li{margin:.2em 0}
 .panel.bad{border-color:var(--beni)}.panel.bad h4{color:var(--beni)}
 .panel.good{border-color:var(--nae)}.panel.good h4{color:var(--nae)}
 .panel.key{border-color:var(--ai)}.panel.key h4{color:var(--ai)}
-.tag{display:inline-block;font-size:12.5px;font-weight:900;border-radius:999px;padding:1px 10px;margin-right:6px;border:2px solid currentColor}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:1px 10px;margin-right:6px;border:2px solid currentColor}
 
 /* chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
@@ -96,8 +96,8 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 
 /* example cards */
 .ex{border:2px solid var(--ink);border-radius:14px;padding:14px 16px 12px;margin:14px 0;position:relative;background:var(--paper)}
-.ex .ex-t{font-weight:900;font-size:16.5px;margin:0 0 6px;line-height:1.5}
-.ex .ex-t::before{content:"たとえば";font-size:12px;font-weight:900;color:var(--paper);background:var(--ai);border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:2px}
+.ex .ex-t{font-weight:700;font-size:16.5px;margin:0 0 6px;line-height:1.5}
+.ex .ex-t::before{content:"たとえば";font-size:12px;font-weight:700;color:var(--paper);background:var(--ai);border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:2px}
 .ex p{font-size:15.5px;margin:0 0 .4em}
 
 /* svg shared */
@@ -112,11 +112,11 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 .cmp{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--ink);border-radius:14px;overflow:hidden;font-size:15px;min-width:560px}
 .cmp th,.cmp td{padding:10px 12px;vertical-align:top;border-bottom:2px solid var(--ink);line-height:1.6;text-align:left}
 .cmp tr:last-child td{border-bottom:none}
-.cmp thead th{font-weight:900;font-size:15px}
+.cmp thead th{font-weight:700;font-size:15px}
 .cmp th.me{color:var(--beni)}.cmp th.you{color:var(--nae)}
 .cmp td.me{border-left:2px solid var(--ink)}
 .cmp td.you{border-left:2px solid var(--ink);background:var(--soft-nae);font-weight:700}
-.cmp th[scope=row]{font-weight:900;white-space:nowrap}
+.cmp th[scope=row]{font-weight:700;white-space:nowrap}
 
 /* venn */
 .venn-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:center}
@@ -125,7 +125,7 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 /* counter */
 .count{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
 .count div{border:2px solid var(--ink);border-radius:12px;padding:10px;text-align:center}
-.count b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(22px,5.6vw,34px);color:var(--ai);line-height:1.3}
+.count b{display:block;font-family:var(--display);font-weight:700;font-weight:700;font-size:clamp(22px,5.6vw,34px);color:var(--ai);line-height:1.3}
 .count span{font-size:13.5px;font-weight:700}
 
 /* paper stack */
@@ -145,11 +145,11 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 /* growth widget */
 .grow{border:3px solid var(--ai);border-radius:18px;padding:16px;margin:18px 0}
 .grow-out{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:6px 0 10px}
-.grow-out .big{font-family:var(--display);font-size:clamp(34px,9vw,58px);line-height:1.1;color:var(--ai)}
-.grow-out .days{font-weight:900;font-size:17px}
+.grow-out .big{font-family:var(--display);font-weight:700;font-size:clamp(34px,9vw,58px);line-height:1.1;color:var(--ai)}
+.grow-out .days{font-weight:700;font-size:17px}
 .grow input[type=range]{width:100%;accent-color:var(--ai);height:32px}
 .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.presets button{font-family:var(--body);font-weight:900;font-size:14.5px;border:2px solid var(--ai);background:var(--paper);color:var(--ai);border-radius:999px;padding:6px 14px;cursor:pointer}
+.presets button{font-family:var(--body);font-weight:700;font-size:14.5px;border:2px solid var(--ai);background:var(--paper);color:var(--ai);border-radius:999px;padding:6px 14px;cursor:pointer}
 .presets button[aria-pressed=true]{background:var(--ai);color:var(--paper)}
 
 /* dialog */
@@ -157,14 +157,14 @@ h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--
 .bub{max-width:88%;border:2px solid var(--ink);border-radius:16px;padding:10px 14px;font-size:15.5px;line-height:1.6;position:relative}
 .bub.l{justify-self:start;border-bottom-left-radius:4px}
 .bub.r{justify-self:end;border-bottom-right-radius:4px}
-.bub .who{display:block;font-size:12.5px;font-weight:900;margin-bottom:2px}
+.bub .who{display:block;font-size:12.5px;font-weight:700;margin-bottom:2px}
 .bub.bad{border-color:var(--beni)}.bub.bad .who{color:var(--beni)}
 .bub.good{border-color:var(--nae);background:var(--soft-nae)}.bub.good .who{color:var(--nae)}
 .bub.ai .who{color:var(--ai)}
 
 /* final */
 .final{margin-top:70px;border:4px solid var(--ink);border-radius:22px;padding:28px 22px;text-align:left}
-.final p.big{font-family:var(--display);font-size:clamp(24px,5.8vw,40px);line-height:1.4;margin:0 0 14px;color:var(--ai)}
+.final p.big{font-family:var(--display);font-weight:700;font-size:clamp(24px,5.8vw,40px);line-height:1.4;margin:0 0 14px;color:var(--ai)}
 footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
 
 @media (prefers-reduced-motion:no-preference){
@@ -228,13 +228,13 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
         <rect x="20" y="30" width="150" height="70" rx="8" fill="var(--soft-ai)" class="stroke-ink" stroke-width="2"/>
         <path d="M35 70 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="var(--ai)" stroke-width="2"/>
         <text x="95" y="22" text-anchor="middle" font-size="15" font-weight="700">田んぼ</text>
-        <text x="270" y="60" text-anchor="middle" font-size="16" font-weight="900">眺めるだけ</text>
+        <text x="270" y="60" text-anchor="middle" font-size="16" font-weight="700">眺めるだけ</text>
         <text x="270" y="82" text-anchor="middle" font-size="14">100年待っても…</text>
         <path d="M190 95 H355" stroke="var(--beni)" stroke-width="3" stroke-dasharray="6 6"/>
         <path d="M350 88 l10 7 -10 7" fill="none" stroke="var(--beni)" stroke-width="3"/>
         <circle cx="440" cy="65" r="30" fill="none" stroke="var(--beni)" stroke-width="4"/>
         <path d="M425 50 l30 30 M455 50 l-30 30" stroke="var(--beni)" stroke-width="4"/>
-        <text x="555" y="72" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--beni)">米はできない</text>
+        <text x="555" y="72" text-anchor="middle" font-size="17" font-weight="700" style="fill:var(--beni)">米はできない</text>
       </g>
       <!-- row 2 -->
       <g transform="translate(0,130)">
@@ -244,12 +244,12 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
           <path d="M95 85 v-35 M95 58 q-10 -10 -12 -22 M95 58 q10 -10 12 -22"/>
           <path d="M145 85 v-35 M145 58 q-10 -10 -12 -22 M145 58 q10 -10 12 -22"/>
         </g>
-        <text x="270" y="50" text-anchor="middle" font-size="16" font-weight="900">人が手をかける</text>
+        <text x="270" y="50" text-anchor="middle" font-size="16" font-weight="700">人が手をかける</text>
         <text x="270" y="72" text-anchor="middle" font-size="14">自分の体を動かす</text>
         <path d="M190 85 H355" stroke="var(--nae)" stroke-width="3"/>
         <path d="M350 78 l10 7 -10 7" fill="none" stroke="var(--nae)" stroke-width="3"/>
         <circle cx="440" cy="55" r="30" fill="none" stroke="var(--nae)" stroke-width="4"/>
-        <text x="555" y="62" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--nae)">米ができる</text>
+        <text x="555" y="62" text-anchor="middle" font-size="17" font-weight="700" style="fill:var(--nae)">米ができる</text>
       </g>
     </svg>
     <figcaption>人生も同じ。「何かいいこと起こらないかな」と待っていても、自然に任せていては何も来ない。</figcaption>
@@ -325,7 +325,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
       <path d="M30 120 H670" stroke="var(--ink)" stroke-width="3"/>
       <g font-size="14">
         <circle cx="90" cy="120" r="10" fill="var(--ai)"/>
-        <text x="90" y="100" text-anchor="middle" font-weight="900">幼稚園</text>
+        <text x="90" y="100" text-anchor="middle" font-weight="700">幼稚園</text>
         <text x="90" y="152" text-anchor="middle" font-weight="700">娘「バスの</text>
         <text x="90" y="170" text-anchor="middle" font-weight="700">運転手」</text>
         <text x="90" y="192" text-anchor="middle" font-size="12.5">その日初めて</text>
@@ -333,7 +333,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
         <text x="90" y="230" text-anchor="middle" font-size="12.5" style="fill:var(--beni)">本当は子役が夢</text>
 
         <circle cx="260" cy="120" r="10" fill="var(--ai)"/>
-        <text x="260" y="100" text-anchor="middle" font-weight="900">小学校</text>
+        <text x="260" y="100" text-anchor="middle" font-weight="700">小学校</text>
         <text x="260" y="152" text-anchor="middle" font-weight="700">毎年「将来の夢」</text>
         <text x="260" y="170" text-anchor="middle" font-weight="700">の作文</text>
         <text x="260" y="192" text-anchor="middle" font-size="12.5">入学時、2分の1成人式、</text>
@@ -341,12 +341,12 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
         <text x="260" y="230" text-anchor="middle" font-size="12.5">夢があるうちは苦じゃない</text>
 
         <circle cx="430" cy="120" r="10" fill="var(--ai)"/>
-        <text x="430" y="100" text-anchor="middle" font-weight="900">小6（講師）</text>
+        <text x="430" y="100" text-anchor="middle" font-weight="700">小6（講師）</text>
         <text x="430" y="152" text-anchor="middle" font-weight="700">「プロ野球選手」</text>
         <text x="430" y="174" text-anchor="middle" font-size="12.5">その後、夢を諦める</text>
 
         <circle cx="600" cy="120" r="10" fill="var(--beni)"/>
-        <text x="600" y="100" text-anchor="middle" font-weight="900" style="fill:var(--beni)">夢がない時期</text>
+        <text x="600" y="100" text-anchor="middle" font-weight="700" style="fill:var(--beni)">夢がない時期</text>
         <text x="600" y="152" text-anchor="middle" font-weight="700">「夢がないから</text>
         <text x="600" y="170" text-anchor="middle" font-weight="700">本気になれない」</text>
         <text x="600" y="192" text-anchor="middle" font-size="12.5">と叱られ</text>
@@ -374,13 +374,13 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
         <path d="M232 81 A100 100 0 0 1 250 190" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
         <path d="M200 243 A100 100 0 0 1 68 190" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
         <path d="M66 105 A100 100 0 0 1 150 50" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
-        <g font-size="14.5" font-weight="900">
+        <g font-size="14.5" font-weight="700">
           <rect x="105" y="30" width="110" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="160" y="52" text-anchor="middle">欲しい</text>
           <rect x="220" y="200" width="96" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="268" y="222" text-anchor="middle">手に入れる</text>
           <rect x="4" y="200" width="108" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="58" y="222" text-anchor="middle">もっと上が欲しい</text>
         </g>
-        <text x="160" y="140" text-anchor="middle" font-size="15" font-weight="900">延々と繰り返しても</text>
-        <text x="160" y="164" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--beni)">幸せにはならない</text>
+        <text x="160" y="140" text-anchor="middle" font-size="15" font-weight="700">延々と繰り返しても</text>
+        <text x="160" y="164" text-anchor="middle" font-size="17" font-weight="700" style="fill:var(--beni)">幸せにはならない</text>
       </svg>
     </figure>
     <div>
@@ -411,7 +411,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
         <circle class="venn-fill" cx="140" cy="120" r="95" fill="var(--nae)" fill-opacity=".16" stroke="var(--nae)" stroke-width="3"/>
         <circle class="venn-fill" cx="240" cy="120" r="95" fill="var(--hi)" fill-opacity=".28" stroke="#C99A00" stroke-width="3"/>
         <circle class="venn-fill" cx="190" cy="205" r="95" fill="var(--ai)" fill-opacity=".14" stroke="var(--ai)" stroke-width="3"/>
-        <g font-weight="900" font-size="16">
+        <g font-weight="700" font-size="16">
           <text x="100" y="95" text-anchor="middle">① 没頭</text>
           <text x="100" y="116" text-anchor="middle" font-size="12.5" font-weight="700">時間を忘れて</text>
           <text x="100" y="132" text-anchor="middle" font-size="12.5" font-weight="700">取り組める何か</text>
@@ -422,7 +422,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
           <text x="190" y="282" text-anchor="middle" font-size="12.5" font-weight="700">自分でそう思える</text>
         </g>
         <circle cx="190" cy="150" r="30" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>
-        <text x="190" y="156" text-anchor="middle" font-size="17" font-weight="900">幸せ</text>
+        <text x="190" y="156" text-anchor="middle" font-size="17" font-weight="700">幸せ</text>
       </svg>
     </figure>
     <div>
@@ -460,7 +460,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
     <div class="scroll">
     <svg viewBox="0 0 700 230" role="img" aria-label="ミセスのメンバーも学生時代に多くのハードルを越えた。その先で自分の役割に出会い、曲に救われた人がいる。" style="min-width:560px">
       <path d="M20 190 H680" stroke="var(--ink)" stroke-width="3"/>
-      <text x="60" y="215" text-anchor="middle" font-size="13" font-weight="900">中高生時代</text>
+      <text x="60" y="215" text-anchor="middle" font-size="13" font-weight="700">中高生時代</text>
       <text x="60" y="232" text-anchor="middle" font-size="11.5" font-weight="700"></text>
       <g stroke="var(--ink)" stroke-width="3">
         <path d="M150 190 V140 M210 190 V140 M140 140 H220"/>
@@ -475,10 +475,10 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
       <path class="draw" d="M60 175 Q120 60 180 110 Q250 40 320 110 Q390 40 460 110 Q520 60 580 160" fill="none" stroke="var(--ai)" stroke-width="3.5" stroke-dasharray="1200"/>
       <circle cx="60" cy="175" r="9" fill="var(--ai)"/>
       <rect x="545" y="30" width="140" height="80" rx="12" fill="var(--soft-nae)" stroke="var(--nae)" stroke-width="3"/>
-      <text x="615" y="60" text-anchor="middle" font-size="14" font-weight="900" style="fill:var(--nae)">自分の役割</text>
+      <text x="615" y="60" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--nae)">自分の役割</text>
       <text x="615" y="80" text-anchor="middle" font-size="13" font-weight="700">曲を作る</text>
       <text x="615" y="98" text-anchor="middle" font-size="13" font-weight="700">→ 救われる人がいる</text>
-      <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="900" style="fill:var(--ai)">ハードルを越えたのは、自分のためではない</text>
+      <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--ai)">ハードルを越えたのは、自分のためではない</text>
       <text x="350" y="50" text-anchor="middle" font-size="13" font-weight="700">その曲がなければ生きられなかった人のため</text>
     </svg>
     </div>
@@ -608,7 +608,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
     <div class="panel good"><h4>上位互換</h4><ul><li>「どうせやるなら、人よりその先まで」</li></ul></div>
   </div>
 
-  <p style="font-weight:900;margin-top:18px">小さな選択を1日10回くり返すと</p>
+  <p style="font-weight:700;margin-top:18px">小さな選択を1日10回くり返すと</p>
   <div class="count">
     <div><b>10回</b><span>1日</span></div>
     <div><b>3,650回</b><span>1年</span></div>
@@ -650,7 +650,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
   </div>
 
   <figure class="fig">
-    <p style="font-weight:900;margin:0 0 4px">同じ「誰でもできる仕事」を頼んでも…</p>
+    <p style="font-weight:700;margin:0 0 4px">同じ「誰でもできる仕事」を頼んでも…</p>
     <div class="spec">
       <div class="spec-bar" aria-hidden="true"></div>
       <div class="spec-labels">
@@ -719,7 +719,7 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
   </figure>
 
   <div class="grow">
-    <p style="font-weight:900;margin:0">毎日1%ずつ成長すると、何倍になる？</p>
+    <p style="font-weight:700;margin:0">毎日1%ずつ成長すると、何倍になる？</p>
     <div class="grow-out" aria-live="polite">
       <span class="big" id="gv">37.8倍</span>
       <span class="days" id="gd">365日（1年）</span>
@@ -764,11 +764,11 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
   <figure class="fig">
     <svg viewBox="0 0 640 230" role="img" aria-label="小欲は自分のための欲。大欲は自分の知識・技術・才能を多くの人の幸せのために生かすこと。">
       <circle cx="120" cy="115" r="62" fill="var(--soft-beni)" stroke="var(--beni)" stroke-width="3"/>
-      <text x="120" y="108" text-anchor="middle" font-size="20" font-weight="900" style="fill:var(--beni)">小欲</text>
+      <text x="120" y="108" text-anchor="middle" font-size="20" font-weight="700" style="fill:var(--beni)">小欲</text>
       <text x="120" y="132" text-anchor="middle" font-size="13" font-weight="700">自分のための欲</text>
       <path d="M195 115 H300" stroke="var(--ink)" stroke-width="3"/><path d="M292 106 l12 9 -12 9" fill="none" stroke="var(--ink)" stroke-width="3"/>
       <circle cx="450" cy="115" r="105" fill="var(--soft-nae)" stroke="var(--nae)" stroke-width="3"/>
-      <text x="450" y="90" text-anchor="middle" font-size="26" font-weight="900" style="fill:var(--nae)">大欲</text>
+      <text x="450" y="90" text-anchor="middle" font-size="26" font-weight="700" style="fill:var(--nae)">大欲</text>
       <text x="450" y="118" text-anchor="middle" font-size="13.5" font-weight="700">知識・技術・才能を</text>
       <text x="450" y="138" text-anchor="middle" font-size="13.5" font-weight="700">世の中の多くの人の</text>
       <text x="450" y="158" text-anchor="middle" font-size="13.5" font-weight="700">幸せのために生かす</text>
@@ -824,9 +824,9 @@ footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
   el('path',{d:'M'+x(0)+' '+y(1)+' L'+x(365)+' '+y(endV),stroke:'var(--beni)','stroke-width':3,'stroke-dasharray':'8 6',fill:'none'});
   var dstr='M'+curve.map(function(p){return p.join(' ')}).join(' L')+' L'+x(365)+' '+y(endV);
   el('path',{d:dstr,stroke:'var(--ai)','stroke-width':4,fill:'none','class':'draw'});
-  el('text',{x:x(150),y:y(10)-4,'text-anchor':'middle','font-size':14,'font-weight':900},'思ったほど伸びない時期');
+  el('text',{x:x(150),y:y(10)-4,'text-anchor':'middle','font-size':14,'font-weight':700},'思ったほど伸びない時期');
   el('text',{x:x(150),y:y(10)+14,'text-anchor':'middle','font-size':12.5},'（3ヶ月で思うのは約10倍、実際は約2.4倍）');
-  el('text',{x:x(365)-6,y:y(endV)-10,'text-anchor':'end','font-size':15,'font-weight':900,style:'fill:var(--ai)'},'1年で約37倍');
+  el('text',{x:x(365)-6,y:y(endV)-10,'text-anchor':'end','font-size':15,'font-weight':700,style:'fill:var(--ai)'},'1年で約37倍');
   var mk=el('circle',{cx:x(365),cy:y(endV),r:8,fill:'var(--ai)',stroke:'var(--paper)','stroke-width':3});
 
   var s=document.getElementById('gs'),gv=document.getElementById('gv'),gd=document.getElementById('gd');
