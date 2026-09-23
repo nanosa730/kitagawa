@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>図解｜何のために学び、働くのか</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#161A3A; --ai:#2A3990; --nae:#2F7D32; --hi:#FFD84D; --beni:#C8372D;
+  --soft-ai:#ECEFFC; --soft-nae:#E7F4E3; --soft-beni:#FCEAE8; --soft-hi:#FFF6CC;
+  --display:"Dela Gothic One","Hiragino Kaku Gothic StdN","Yu Gothic",sans-serif;
+  --body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1430; --ink:#F4F2EA; --ai:#A9B8FF; --nae:#95D98F; --hi:#FFD84D; --beni:#FF8F85;
+    --soft-ai:#1C2555; --soft-nae:#153019; --soft-beni:#3A1B1E; --soft-hi:#3A3314;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1430; --ink:#F4F2EA; --ai:#A9B8FF; --nae:#95D98F; --hi:#FFD84D; --beni:#FF8F85;
+  --soft-ai:#1C2555; --soft-nae:#153019; --soft-beni:#3A1B1E; --soft-hi:#3A3314;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:500;line-height:1.85;font-size:17px;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+main{max-width:880px;margin:0 auto;padding:0 20px 80px}
+a{color:var(--ai)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ai);outline-offset:3px;border-radius:6px}
+p{margin:0 0 .8em}
+strong{font-weight:900}
+.mark{background:linear-gradient(transparent 58%,var(--hi) 58%);padding:0 .1em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark{background:linear-gradient(transparent 58%,rgba(255,216,77,.45) 58%)}}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 32px;border-bottom:4px solid var(--ink)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,8vw,64px);line-height:1.2;margin:0 0 28px;letter-spacing:.02em}
+.hero .lead{font-size:15px;margin:0 0 30px}
+.flip{display:grid;gap:10px}
+.flip .old{font-size:clamp(18px,4.2vw,26px);font-weight:700;color:var(--beni)}
+.flip .old s{text-decoration-thickness:3px}
+.flip .new{font-family:var(--display);font-size:clamp(26px,6.4vw,46px);line-height:1.3;color:var(--ai)}
+.flip .new small{display:block;font-family:var(--body);font-weight:700;font-size:clamp(16px,3.6vw,22px);color:var(--ink);margin-top:4px}
+.core{margin-top:30px;border-left:8px solid var(--nae);padding:6px 0 6px 18px;font-size:17px}
+
+/* ---------- TOC ---------- */
+.toc{margin:34px 0 10px}
+.toc h2{font-size:16px;margin:0 0 10px;font-weight:900}
+.toc ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:8px 12px;font-weight:700;font-size:15px;line-height:1.5}
+.toc a::before{content:counter(t);font-family:var(--display);color:var(--ai);font-size:18px;min-width:1.2em}
+.toc a:hover{background:var(--soft-ai)}
+
+/* ---------- chapter ---------- */
+.ch{padding-top:64px}
+.ch-head{display:flex;gap:16px;align-items:flex-end;margin-bottom:22px;border-bottom:3px solid var(--ink);padding-bottom:12px}
+.ch-num{font-family:var(--display);font-size:clamp(56px,13vw,96px);line-height:.85;color:transparent;-webkit-text-stroke:2px var(--ai)}
+.ch-head h2{font-family:var(--display);font-weight:400;font-size:clamp(22px,5.2vw,34px);line-height:1.3;margin:0}
+.ch-head h2 small{display:block;font-family:var(--body);font-weight:700;font-size:15px;margin-top:4px}
+h3{font-size:20px;font-weight:900;margin:36px 0 12px;line-height:1.5;display:flex;align-items:center;gap:10px}
+h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--nae);flex:none}
+.note{font-size:15px;border:2px dashed var(--ink);border-radius:12px;padding:12px 16px;margin:14px 0}
+.quote{font-weight:900;font-size:clamp(18px,4.2vw,23px);line-height:1.6;padding:14px 0 14px 18px;border-left:6px solid var(--ai);margin:18px 0}
+
+/* generic flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:14px 0}
+.flow .step{flex:1 1 140px;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;font-weight:700;font-size:15px;line-height:1.55;background:var(--paper)}
+.flow .arr{align-self:center;font-family:var(--display);color:var(--ai);font-size:22px;flex:none}
+.step.good{border-color:var(--nae);background:var(--soft-nae)}
+.step.bad{border-color:var(--beni);background:var(--soft-beni)}
+.step.key{border-color:var(--ai);background:var(--soft-ai)}
+.step small{display:block;font-weight:500;font-size:13.5px;margin-top:2px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+@media (max-width:620px){.two{grid-template-columns:1fr}}
+.panel{border:2px solid var(--ink);border-radius:14px;padding:14px 16px;background:var(--paper)}
+.panel h4{margin:0 0 8px;font-size:16px;font-weight:900;line-height:1.5}
+.panel ul{margin:0;padding-left:1.2em;font-size:15px}
+.panel li{margin:.2em 0}
+.panel.bad{border-color:var(--beni)}.panel.bad h4{color:var(--beni)}
+.panel.good{border-color:var(--nae)}.panel.good h4{color:var(--nae)}
+.panel.key{border-color:var(--ai)}.panel.key h4{color:var(--ai)}
+.tag{display:inline-block;font-size:12.5px;font-weight:900;border-radius:999px;padding:1px 10px;margin-right:6px;border:2px solid currentColor}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:14.5px;font-weight:700;background:var(--paper)}
+
+/* example cards */
+.ex{border:2px solid var(--ink);border-radius:14px;padding:14px 16px 12px;margin:14px 0;position:relative;background:var(--paper)}
+.ex .ex-t{font-weight:900;font-size:16.5px;margin:0 0 6px;line-height:1.5}
+.ex .ex-t::before{content:"たとえば";font-size:12px;font-weight:900;color:var(--paper);background:var(--ai);border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:2px}
+.ex p{font-size:15.5px;margin:0 0 .4em}
+
+/* svg shared */
+.fig{margin:18px 0;border:2px solid var(--ink);border-radius:16px;padding:14px;background:var(--paper)}
+.fig figcaption{font-size:14px;font-weight:700;margin-top:8px}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--body);fill:var(--ink)}
+.stroke-ink{stroke:var(--ink)}
+.scroll{overflow-x:auto}
+
+/* comparison table */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--ink);border-radius:14px;overflow:hidden;font-size:15px;min-width:560px}
+.cmp th,.cmp td{padding:10px 12px;vertical-align:top;border-bottom:2px solid var(--ink);line-height:1.6;text-align:left}
+.cmp tr:last-child td{border-bottom:none}
+.cmp thead th{font-weight:900;font-size:15px}
+.cmp th.me{color:var(--beni)}.cmp th.you{color:var(--nae)}
+.cmp td.me{border-left:2px solid var(--ink)}
+.cmp td.you{border-left:2px solid var(--ink);background:var(--soft-nae);font-weight:700}
+.cmp th[scope=row]{font-weight:900;white-space:nowrap}
+
+/* venn */
+.venn-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:center}
+@media (max-width:620px){.venn-wrap{grid-template-columns:1fr}}
+
+/* counter */
+.count{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.count div{border:2px solid var(--ink);border-radius:12px;padding:10px;text-align:center}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(22px,5.6vw,34px);color:var(--ai);line-height:1.3}
+.count span{font-size:13.5px;font-weight:700}
+
+/* paper stack */
+.stack{display:flex;align-items:flex-end;gap:28px;margin:12px 0 4px;padding:12px 6px 0}
+.stack .one,.stack .many{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:14px;font-weight:700;text-align:center}
+.sheet{width:110px;height:3px;background:var(--ink);border-radius:2px}
+.pile{width:110px;height:140px;border:2px solid var(--ink);border-radius:4px;background:repeating-linear-gradient(to bottom,var(--paper) 0 4px,var(--ink) 4px 5px)}
+
+/* spectrum */
+.spec{margin:14px 0 6px}
+.spec-bar{height:18px;border-radius:999px;border:2px solid var(--ink);background:linear-gradient(90deg,var(--paper),var(--soft-ai) 55%,var(--ai));position:relative}
+.spec-labels{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;font-size:13.5px;font-weight:700;line-height:1.5}
+.spec-labels div{border-top:3px solid var(--ink);padding-top:6px}
+.spec-labels div:last-child{border-top-color:var(--ai);color:var(--ai)}
+@media (max-width:520px){.spec-labels{grid-template-columns:1fr 1fr}}
+
+/* growth widget */
+.grow{border:3px solid var(--ai);border-radius:18px;padding:16px;margin:18px 0}
+.grow-out{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:6px 0 10px}
+.grow-out .big{font-family:var(--display);font-size:clamp(34px,9vw,58px);line-height:1.1;color:var(--ai)}
+.grow-out .days{font-weight:900;font-size:17px}
+.grow input[type=range]{width:100%;accent-color:var(--ai);height:32px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.presets button{font-family:var(--body);font-weight:900;font-size:14.5px;border:2px solid var(--ai);background:var(--paper);color:var(--ai);border-radius:999px;padding:6px 14px;cursor:pointer}
+.presets button[aria-pressed=true]{background:var(--ai);color:var(--paper)}
+
+/* dialog */
+.talk{display:grid;gap:10px;margin:14px 0}
+.bub{max-width:88%;border:2px solid var(--ink);border-radius:16px;padding:10px 14px;font-size:15.5px;line-height:1.6;position:relative}
+.bub.l{justify-self:start;border-bottom-left-radius:4px}
+.bub.r{justify-self:end;border-bottom-right-radius:4px}
+.bub .who{display:block;font-size:12.5px;font-weight:900;margin-bottom:2px}
+.bub.bad{border-color:var(--beni)}.bub.bad .who{color:var(--beni)}
+.bub.good{border-color:var(--nae);background:var(--soft-nae)}.bub.good .who{color:var(--nae)}
+.bub.ai .who{color:var(--ai)}
+
+/* final */
+.final{margin-top:70px;border:4px solid var(--ink);border-radius:22px;padding:28px 22px;text-align:left}
+.final p.big{font-family:var(--display);font-size:clamp(24px,5.8vw,40px);line-height:1.4;margin:0 0 14px;color:var(--ai)}
+footer{max-width:880px;margin:0 auto;padding:0 20px 40px;font-size:14px}
+
+@media (prefers-reduced-motion:no-preference){
+  .draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.8s ease-out .3s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+@media print{
+  :root{--paper:#fff;--ink:#000;--soft-ai:#fff;--soft-nae:#fff;--soft-beni:#fff;--soft-hi:#fff}
+  body{font-size:12pt}
+  .mark{background:none;border-bottom:2px solid #000}
+  .toc,.grow input,.presets{display:none}
+  .ch{break-inside:auto;padding-top:28px}
+  .fig,.ex,.panel,.two,.flow,.cmp{break-inside:avoid}
+  .pile{background:#fff;border-width:3px}
+  .spec-bar{background:#fff}
+  .venn-fill{fill-opacity:0!important}
+  .area{display:none}
+  .draw{stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <h1>何のために<br>学び、働くのか</h1>
+  <p class="lead">講演の図解まとめ。講演で語られた具体例は、すべて図の中に入れています。</p>
+  <div class="flip" aria-label="講演の結論">
+    <div class="old"><s>今の自分のお金のため</s>　では、人は頑張れない</div>
+    <div class="new">未来の誰かの幸せのため<small>なら、人は頑張れる。</small></div>
+  </div>
+  <p class="core">一人ひとりに、<strong>自分にしかできない役割</strong>がある。その役割を果たせるように自分を磨き、世の中に届ける。それが学ぶ意味であり、働く意味であり、自分が幸せになる道でもある。</p>
+
+  <nav class="toc" aria-label="もくじ">
+    <h2>話の流れ</h2>
+    <ol>
+      <li><a href="#c1">動かなければ何も変わらない</a></li>
+      <li><a href="#c2">夢を叶える ≠ 幸せ</a></li>
+      <li><a href="#c3">幸せの3つの条件</a></li>
+      <li><a href="#c4">自分にしかできない役割</a></li>
+      <li><a href="#c5">人は自分のためには頑張れない</a></li>
+      <li><a href="#c6">才能より「思考癖」</a></li>
+      <li><a href="#c7">「賢い選択」が無気力を生む</a></li>
+      <li><a href="#c8">1%成長の気概</a></li>
+      <li><a href="#c9">小欲を捨てて大欲に立つ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ============ 1 ============ -->
+<section class="ch" id="c1">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">1</span><h2>動かなければ、何も変わらない<small>答えは、何もしないでは出てこない</small></h2></div>
+
+  <p>講演の冒頭、会場の子どもたちに呼びかけた。「小学生は最後まで聞くことが大事。中高生は、最後まで聞いている小学生に負けないように。高校生は明日から試験なのに来た。人生を変える1日にするつもりで聞いてほしい」。</p>
+
+  <h3>田んぼの米は、勝手にはできない</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 640 250" role="img" aria-label="田んぼを眺めて100年待っても米はできない。人が手をかけると米ができる。">
+      <!-- row 1 -->
+      <g>
+        <rect x="20" y="30" width="150" height="70" rx="8" fill="var(--soft-ai)" class="stroke-ink" stroke-width="2"/>
+        <path d="M35 70 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="var(--ai)" stroke-width="2"/>
+        <text x="95" y="22" text-anchor="middle" font-size="15" font-weight="700">田んぼ</text>
+        <text x="270" y="60" text-anchor="middle" font-size="16" font-weight="900">眺めるだけ</text>
+        <text x="270" y="82" text-anchor="middle" font-size="14">100年待っても…</text>
+        <path d="M190 95 H355" stroke="var(--beni)" stroke-width="3" stroke-dasharray="6 6"/>
+        <path d="M350 88 l10 7 -10 7" fill="none" stroke="var(--beni)" stroke-width="3"/>
+        <circle cx="440" cy="65" r="30" fill="none" stroke="var(--beni)" stroke-width="4"/>
+        <path d="M425 50 l30 30 M455 50 l-30 30" stroke="var(--beni)" stroke-width="4"/>
+        <text x="555" y="72" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--beni)">米はできない</text>
+      </g>
+      <!-- row 2 -->
+      <g transform="translate(0,130)">
+        <rect x="20" y="20" width="150" height="70" rx="8" fill="var(--soft-nae)" class="stroke-ink" stroke-width="2"/>
+        <g stroke="var(--nae)" stroke-width="3" fill="none">
+          <path d="M45 85 v-35 M45 58 q-10 -10 -12 -22 M45 58 q10 -10 12 -22"/>
+          <path d="M95 85 v-35 M95 58 q-10 -10 -12 -22 M95 58 q10 -10 12 -22"/>
+          <path d="M145 85 v-35 M145 58 q-10 -10 -12 -22 M145 58 q10 -10 12 -22"/>
+        </g>
+        <text x="270" y="50" text-anchor="middle" font-size="16" font-weight="900">人が手をかける</text>
+        <text x="270" y="72" text-anchor="middle" font-size="14">自分の体を動かす</text>
+        <path d="M190 85 H355" stroke="var(--nae)" stroke-width="3"/>
+        <path d="M350 78 l10 7 -10 7" fill="none" stroke="var(--nae)" stroke-width="3"/>
+        <circle cx="440" cy="55" r="30" fill="none" stroke="var(--nae)" stroke-width="4"/>
+        <text x="555" y="62" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--nae)">米ができる</text>
+      </g>
+    </svg>
+    <figcaption>人生も同じ。「何かいいこと起こらないかな」と待っていても、自然に任せていては何も来ない。</figcaption>
+  </figure>
+
+  <h3>きっかけ① 迷ったら、本屋に行く</h3>
+  <div class="flow">
+    <div class="step">人それぞれの悩み
+      <small>背を高くしたい／サッカーがうまくなりたい／成績を上げたい／好きな子に振り向いてほしい</small></div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step key">本屋で「これ気になる」と手に取る本</div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step good">その本は、今の自分の悩みにつながっている</div>
+  </div>
+  <p style="font-size:15.5px">背を高くしたい人は、サッカーの本は手に取らない。悩みが違えば、気になる本も違う。</p>
+
+  <div class="two">
+    <div class="panel">
+      <h4>ネット</h4>
+      <svg viewBox="0 0 300 70" aria-hidden="true"><g fill="var(--paper)" class="stroke-ink" stroke-width="2"><rect x="10" y="20" width="44" height="30" rx="5"/><rect x="90" y="20" width="44" height="30" rx="5"/><rect x="170" y="20" width="44" height="30" rx="5"/><rect x="250" y="20" width="44" height="30" rx="5"/></g><g stroke="var(--ink)" stroke-width="2"><path d="M54 35 H90 M134 35 H170 M214 35 H250"/></g></svg>
+      <ul><li>関連する本からしか広がらない</li></ul>
+    </div>
+    <div class="panel good">
+      <h4>本屋</h4>
+      <svg viewBox="0 0 300 70" aria-hidden="true"><g class="stroke-ink" stroke-width="2"><rect x="10" y="8" width="40" height="26" rx="5" fill="var(--soft-nae)"/><rect x="70" y="36" width="40" height="26" rx="5" fill="var(--soft-ai)"/><rect x="128" y="6" width="40" height="26" rx="5" fill="var(--soft-hi)"/><rect x="188" y="34" width="40" height="26" rx="5" fill="var(--soft-beni)"/><rect x="248" y="10" width="40" height="26" rx="5" fill="var(--soft-nae)"/></g></svg>
+      <ul><li>中を歩くと、いろんなジャンルが目に入る</li></ul>
+    </div>
+  </div>
+
+  <div class="ex">
+    <p class="ex-t">気になる本が10冊あったら</p>
+    <div class="flow">
+      <div class="step key">気になる本は全部買う
+        <small>親に「1冊にしなさい」と言われたら「僕に連絡を」と講師（冗談まじりに）</small></div>
+      <span class="arr" aria-hidden="true">▶</span>
+      <div class="step bad">10冊積んだまま、1冊も読まない
+        <small>次は買ってもらえない</small></div>
+    </div>
+    <div class="flow">
+      <div class="step key">気になる本は全部買う</div>
+      <span class="arr" aria-hidden="true">▶</span>
+      <div class="step good">ちょっとずつでも読み続ける
+        <small>やがて「好きなだけ買っていいよ」と言われるようになる</small></div>
+    </div>
+  </div>
+
+  <h3>きっかけ② 話を聞きに行く</h3>
+  <div class="flow">
+    <div class="step">本を読む</div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step">「この作家の話を聞きたい」</div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step key">遠くても行く
+      <small>会場には岐阜から来た人も。「沖縄でやる」と聞いても、旅行を兼ねて行けばいい</small></div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step good">人生を変えるきっかけになる</div>
+  </div>
+  <div class="ex">
+    <p class="ex-t">博多の高校生</p>
+    <p>金沢にも横浜にも東京にも九州にも、講演会のたびに現れる高校生がいる。「推し活は北川先生」と言う。休日の時間をわざわざ使って来てくれる人がいるから、講師は「わかりやすく」ではなく<strong>「本気で」</strong>話すと決めている。</p>
+  </div>
+  <p class="quote">きっかけは、自分で作らなければいけない。<br>それを知って帰るだけでも、来た意味がある。</p>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="ch" id="c2">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">2</span><h2>夢を叶えることと、<br>幸せになることは別<small>「夢は何？」と聞かれ続けて育つ私たち</small></h2></div>
+
+  <h3>「夢は何？」の年表</h3>
+  <figure class="fig">
+    <div class="scroll">
+    <svg viewBox="0 0 700 250" role="img" aria-label="幼稚園でバスの運転手、小学校で毎年の作文、小6でプロ野球選手、諦めた後は夢を探せと叱られる" style="min-width:560px">
+      <path d="M30 120 H670" stroke="var(--ink)" stroke-width="3"/>
+      <g font-size="14">
+        <circle cx="90" cy="120" r="10" fill="var(--ai)"/>
+        <text x="90" y="100" text-anchor="middle" font-weight="900">幼稚園</text>
+        <text x="90" y="152" text-anchor="middle" font-weight="700">娘「バスの</text>
+        <text x="90" y="170" text-anchor="middle" font-weight="700">運転手」</text>
+        <text x="90" y="192" text-anchor="middle" font-size="12.5">その日初めて</text>
+        <text x="90" y="208" text-anchor="middle" font-size="12.5">乗ったバスに感動</text>
+        <text x="90" y="230" text-anchor="middle" font-size="12.5" style="fill:var(--beni)">本当は子役が夢</text>
+
+        <circle cx="260" cy="120" r="10" fill="var(--ai)"/>
+        <text x="260" y="100" text-anchor="middle" font-weight="900">小学校</text>
+        <text x="260" y="152" text-anchor="middle" font-weight="700">毎年「将来の夢」</text>
+        <text x="260" y="170" text-anchor="middle" font-weight="700">の作文</text>
+        <text x="260" y="192" text-anchor="middle" font-size="12.5">入学時、2分の1成人式、</text>
+        <text x="260" y="208" text-anchor="middle" font-size="12.5">5年、6年…</text>
+        <text x="260" y="230" text-anchor="middle" font-size="12.5">夢があるうちは苦じゃない</text>
+
+        <circle cx="430" cy="120" r="10" fill="var(--ai)"/>
+        <text x="430" y="100" text-anchor="middle" font-weight="900">小6（講師）</text>
+        <text x="430" y="152" text-anchor="middle" font-weight="700">「プロ野球選手」</text>
+        <text x="430" y="174" text-anchor="middle" font-size="12.5">その後、夢を諦める</text>
+
+        <circle cx="600" cy="120" r="10" fill="var(--beni)"/>
+        <text x="600" y="100" text-anchor="middle" font-weight="900" style="fill:var(--beni)">夢がない時期</text>
+        <text x="600" y="152" text-anchor="middle" font-weight="700">「夢がないから</text>
+        <text x="600" y="170" text-anchor="middle" font-weight="700">本気になれない」</text>
+        <text x="600" y="192" text-anchor="middle" font-size="12.5">と叱られ</text>
+        <text x="600" y="210" text-anchor="middle" font-size="12.5">「夢を探せ」と言われる</text>
+      </g>
+      <g font-size="13" font-weight="700">
+        <rect x="30" y="18" width="640" height="46" rx="10" fill="var(--soft-hi)" class="stroke-ink" stroke-width="2"/>
+        <text x="350" y="46" text-anchor="middle">なぜ毎回考えてしまう？ → 人は問われると、どうでもいい問いでも考えてしまう習性がある</text>
+      </g>
+    </svg>
+    </div>
+  </figure>
+
+  <div class="ex">
+    <p class="ex-t">テレビのCM前クイズ</p>
+    <p>「このあとゲストが最初に箸をつけるのは？ ①ご飯 ②もんじゃ焼き ③生姜焼き定食」。どうでもいい問いなのに、CMの間ずっと気になって待ってしまう。だから「夢は何？」と聞かれれば、一生懸命考えてしまう。</p>
+  </div>
+
+  <h3>手に入れても、また次が欲しくなる</h3>
+  <div class="venn-wrap">
+    <figure class="fig" style="margin:0">
+      <svg viewBox="0 0 320 300" role="img" aria-label="欲しいものを手に入れても、もっと上のものが欲しくなる循環。いくら繰り返しても幸せにならない。">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--beni)"/></marker></defs>
+        <circle cx="160" cy="150" r="100" fill="none" stroke="var(--beni)" stroke-width="3" stroke-dasharray="4 7"/>
+        <path d="M232 81 A100 100 0 0 1 250 190" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
+        <path d="M200 243 A100 100 0 0 1 68 190" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
+        <path d="M66 105 A100 100 0 0 1 150 50" fill="none" stroke="var(--beni)" stroke-width="3" marker-end="url(#ah)"/>
+        <g font-size="14.5" font-weight="900">
+          <rect x="105" y="30" width="110" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="160" y="52" text-anchor="middle">欲しい</text>
+          <rect x="220" y="200" width="96" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="268" y="222" text-anchor="middle">手に入れる</text>
+          <rect x="4" y="200" width="108" height="34" rx="17" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="58" y="222" text-anchor="middle">もっと上が欲しい</text>
+        </g>
+        <text x="160" y="140" text-anchor="middle" font-size="15" font-weight="900">延々と繰り返しても</text>
+        <text x="160" y="164" text-anchor="middle" font-size="17" font-weight="900" style="fill:var(--beni)">幸せにはならない</text>
+      </svg>
+    </figure>
+    <div>
+      <div class="ex" style="margin-top:0">
+        <p class="ex-t">「サンタさんに何をお願いしたの？」</p>
+        <p>子どもの頃から「何が欲しい？」「何になりたい？」と聞かれ続ける。大人になっても、手に入れては古いものを捨て、また次を追う人生を続けてしまう。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex">
+    <p class="ex-t">学校の先生</p>
+    <p>先生は、子どもの頃の夢を叶えた人が多い職業。</p>
+    <div class="two" style="margin-bottom:4px">
+      <div class="panel good"><h4>先生が幸せそう</h4><ul><li>生徒「夢を叶えたら、あんなに幸せになれるんだ」</li></ul></div>
+      <div class="panel bad"><h4>先生が不幸そう</h4><ul><li>生徒「夢を叶えることと幸せは、別問題なんだな」</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="ch" id="c3">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">3</span><h2>幸せに必要な3つのこと<small>各分野のトップランナーから教わったこと</small></h2></div>
+
+  <div class="venn-wrap">
+    <figure class="fig" style="margin:0">
+      <svg viewBox="0 0 380 330" role="img" aria-label="没頭できる何か、誰かからのありがとう、役に立っているという実感。3つが重なるところが幸せ。">
+        <circle class="venn-fill" cx="140" cy="120" r="95" fill="var(--nae)" fill-opacity=".16" stroke="var(--nae)" stroke-width="3"/>
+        <circle class="venn-fill" cx="240" cy="120" r="95" fill="var(--hi)" fill-opacity=".28" stroke="#C99A00" stroke-width="3"/>
+        <circle class="venn-fill" cx="190" cy="205" r="95" fill="var(--ai)" fill-opacity=".14" stroke="var(--ai)" stroke-width="3"/>
+        <g font-weight="900" font-size="16">
+          <text x="100" y="95" text-anchor="middle">① 没頭</text>
+          <text x="100" y="116" text-anchor="middle" font-size="12.5" font-weight="700">時間を忘れて</text>
+          <text x="100" y="132" text-anchor="middle" font-size="12.5" font-weight="700">取り組める何か</text>
+          <text x="280" y="95" text-anchor="middle">② 感謝</text>
+          <text x="280" y="116" text-anchor="middle" font-size="12.5" font-weight="700">誰かから</text>
+          <text x="280" y="132" text-anchor="middle" font-size="12.5" font-weight="700">「ありがとう」</text>
+          <text x="190" y="262" text-anchor="middle">③ 役に立つ実感</text>
+          <text x="190" y="282" text-anchor="middle" font-size="12.5" font-weight="700">自分でそう思える</text>
+        </g>
+        <circle cx="190" cy="150" r="30" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>
+        <text x="190" y="156" text-anchor="middle" font-size="17" font-weight="900">幸せ</text>
+      </svg>
+    </figure>
+    <div>
+      <div class="panel bad" style="margin-bottom:10px"><h4>「ありがとう」だけでは足りない</h4><ul><li>言われても、役に立っている自覚がなければ幸せを感じにくい</li></ul></div>
+      <div class="panel bad"><h4>「役に立つ」だけでも足りない</h4><ul><li>役立つと思ってやっていても、誰からも感謝されなければ感じにくい</li></ul></div>
+    </div>
+  </div>
+
+  <p class="quote">自分のできることで、どれだけ多くの人に<br>「ありがとう」と言ってもらえるか。<br>それが皆さんの未来の幸せを決める。</p>
+
+  <h3>だから、やるべきことは2つ</h3>
+  <div class="flow">
+    <div class="step key" style="flex-basis:220px"><span class="tag" style="color:var(--ai)">1</span>自分の中に、人にあげられるものを作る</div>
+    <span class="arr" aria-hidden="true">▶</span>
+    <div class="step good" style="flex-basis:220px"><span class="tag" style="color:var(--nae)">2</span>それを、ちゃんと人に届ける</div>
+  </div>
+  <p>この2つができる人は、放っておいても幸せになれるし、周りから仕事が集まる。</p>
+
+  <div class="two">
+    <div class="panel bad"><h4>働く目的＝自己実現？</h4><ul><li>欲しいものを買うため</li><li>自分の夢を実現するため</li><li>生きていくためのお金</li></ul></div>
+    <div class="panel good"><h4>働く一番の目的</h4><ul><li><strong>誰かの役に立つこと</strong></li><li>そのために自分を磨く</li></ul></div>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="ch" id="c4">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">4</span><h2>自分にしかできない役割<small>あなたにしかできないことで、幸せになる人がいる</small></h2></div>
+
+  <div class="ex">
+    <p class="ex-t">瀬戸市の中学生と Mrs. GREEN APPLE</p>
+    <p>講演後に行われた「少年の主張」で、ある中学生が発表した。人間関係に苦しみ、学校に行けず家にこもっていた時期に、Mrs. GREEN APPLEの曲に勇気をもらい、学校に行けるようになった。同じような内容の発表がほかにもあった。</p>
+  </div>
+
+  <figure class="fig">
+    <div class="scroll">
+    <svg viewBox="0 0 700 230" role="img" aria-label="ミセスのメンバーも学生時代に多くのハードルを越えた。その先で自分の役割に出会い、曲に救われた人がいる。" style="min-width:560px">
+      <path d="M20 190 H680" stroke="var(--ink)" stroke-width="3"/>
+      <text x="60" y="215" text-anchor="middle" font-size="13" font-weight="900">中高生時代</text>
+      <text x="60" y="232" text-anchor="middle" font-size="11.5" font-weight="700"></text>
+      <g stroke="var(--ink)" stroke-width="3">
+        <path d="M150 190 V140 M210 190 V140 M140 140 H220"/>
+        <path d="M290 190 V140 M350 190 V140 M280 140 H360"/>
+        <path d="M430 190 V140 M490 190 V140 M420 140 H500"/>
+      </g>
+      <g font-size="13" font-weight="700" text-anchor="middle">
+        <text x="180" y="130">才能がない？</text>
+        <text x="320" y="130">やめたい</text>
+        <text x="460" y="130">苦しい</text>
+      </g>
+      <path class="draw" d="M60 175 Q120 60 180 110 Q250 40 320 110 Q390 40 460 110 Q520 60 580 160" fill="none" stroke="var(--ai)" stroke-width="3.5" stroke-dasharray="1200"/>
+      <circle cx="60" cy="175" r="9" fill="var(--ai)"/>
+      <rect x="545" y="30" width="140" height="80" rx="12" fill="var(--soft-nae)" stroke="var(--nae)" stroke-width="3"/>
+      <text x="615" y="60" text-anchor="middle" font-size="14" font-weight="900" style="fill:var(--nae)">自分の役割</text>
+      <text x="615" y="80" text-anchor="middle" font-size="13" font-weight="700">曲を作る</text>
+      <text x="615" y="98" text-anchor="middle" font-size="13" font-weight="700">→ 救われる人がいる</text>
+      <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="900" style="fill:var(--ai)">ハードルを越えたのは、自分のためではない</text>
+      <text x="350" y="50" text-anchor="middle" font-size="13" font-weight="700">その曲がなければ生きられなかった人のため</text>
+    </svg>
+    </div>
+    <figcaption>彼らにも「すごい曲を作りたい」と夢見た、皆さんと同じ年頃があった。</figcaption>
+  </figure>
+
+  <p class="quote">皆さんの役割は、歌でも小説でもないかもしれない。<br>でも、<span class="mark">自分がハードルを乗り越えることでしか救えない命</span>がある。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="ch" id="c5">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">5</span><h2>人は、自分のためには<br>頑張れない<small>未来の誰かの幸せのためなら、頑張れる</small></h2></div>
+
+  <h3>大人が教える「勉強する理由」</h3>
+  <div class="flow">
+    <div class="step">勉強する</div><span class="arr" aria-hidden="true">▶</span>
+    <div class="step">いい大学</div><span class="arr" aria-hidden="true">▶</span>
+    <div class="step">いい就職先</div><span class="arr" aria-hidden="true">▶</span>
+    <div class="step">高い給料</div><span class="arr" aria-hidden="true">▶</span>
+    <div class="step bad">欲しいものが手に入る
+      <small>＝ 今の自分のお金のため</small></div>
+  </div>
+  <div class="two">
+    <div class="panel bad"><h4>✕「今頑張れば将来楽になる」は嘘</h4><ul><li>頑張っても、頑張らなくても、将来は楽じゃない</li></ul></div>
+    <div class="panel good"><h4>◯ 今頑張ると増えるもの</h4><ul><li>将来<strong>あなたのおかげで幸せになる人</strong></li><li>頑張らないと、将来の家族を幸せにすることさえ難しくなる</li></ul></div>
+  </div>
+
+  <div class="ex">
+    <p class="ex-t">塾で20年以上、受験生を見てきて</p>
+    <p>「お前のためだ」と言われて「先生、目が覚めました。今日から頑張ります」と答えた受験生に、講師は会ったことがない。わかっていてもできない。<strong>人は自分のためには頑張れない。これは本能。</strong></p>
+  </div>
+
+  <h3>同じ人でも、誰のためかで行動が変わる</h3>
+  <div class="scroll">
+  <table class="cmp">
+    <thead><tr><th scope="col">場面</th><th scope="col" class="me">自分のためだと</th><th scope="col" class="you">誰かのためだと</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">お弁当</th>
+        <td class="me">親が作れない日に自分で作る。前日のご飯を詰め、海苔を置き、冷凍食品をのせるだけ。</td>
+        <td class="you">気になる子に「自分で作ったの？明日私の分も作って」と言われる。唐揚げ、卵焼きに挑戦し、レベルが一気に上がる。</td></tr>
+      <tr><th scope="row">一人暮らしの部屋</th>
+        <td class="me">自分しか入らないので油断する。</td>
+        <td class="you">気になる人が「遊びに行っていい？」。帰りにホームセンターでコロコロを箱買いして掃除する。</td></tr>
+      <tr><th scope="row">家の片付け</th>
+        <td class="me">散らかしたまま。</td>
+        <td class="you">家族が片付けてくれる。「明日は体育で体操服がいるかも」と洗濯して置いておく。これも未来の誰かの幸せのための行動。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>目標から逃げる癖は、共に生きる人も巻き込む</h3>
+  <div class="ex">
+    <p class="ex-t">「志望校、もうどうでもよくなりました」という受験生</p>
+    <p>自分のためだけなら、大学はどこでも将来は変わらないかもしれない。でも、自分で決めた目標を、やりたくないからとすぐ諦める人は、将来一緒になる人がそれに付き合わされる。</p>
+  </div>
+  <div class="ex">
+    <p class="ex-t">夢を語る夫</p>
+    <div class="talk">
+      <div class="bub l"><span class="who">夫</span>俺には夢がある。そのために少しずつお金を貯めるよ。</div>
+      <div class="bub r"><span class="who">しばらくして</span>今は収入が少ないし、とりあえずコンビニで欲しいもの買って帰ろうかな…</div>
+      <div class="bub l bad"><span class="who">妻の気持ち</span>この人は、夢は語るけど行動しない人なんだ。</div>
+    </div>
+  </div>
+  <p class="quote">成功しても失敗しても、決めたら挑む人であること。<br>それが自分も、共に生きる人も幸せにする。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="ch" id="c6">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">6</span><h2>未来を決めるのは、<br>才能ではなく「思考癖」<small>考え方の癖は、今なら変えられる</small></h2></div>
+
+  <div class="two">
+    <div class="ex" style="margin:0"><p class="ex-t">同級生</p><p>講師は56歳。自分よりずっと勉強ができた同級生、才能のあった同級生がたくさんいた。</p></div>
+    <div class="ex" style="margin:0"><p class="ex-t">作家仲間</p><p>作家生活20数年。自分より才能があり、いい文章を書く作家が「書いても売れない」と筆を折っていった。</p></div>
+  </div>
+  <p class="quote">才能があったから残ったのではない。<br>残したのは、考え方の癖。</p>
+
+  <!-- 6-1 -->
+  <h3>思考癖① 目の前の人を笑顔にしたい</h3>
+  <div class="two">
+    <div class="panel bad"><h4>「何かくれ」の目</h4><ul><li>面白い授業をくれ、笑わせてくれ、いい教え方をしてくれ</li><li>「くれくれ」で小中高を過ごし、たくさんくれる人がいい人だと思い込む</li></ul></div>
+    <div class="panel good"><h4>「何かあげたい」の目</h4><ul><li>ここに座って、自分はこの人に何をあげられるかを考える</li><li>講師は学校講演で「今日の皆さんの仕事は、僕を喜ばせること」と伝えている</li></ul></div>
+  </div>
+  <p style="font-size:15.5px">講演会では、大人は1000円払い、学生は無料招待。どちらも「元を取りたい」と座りがち。でも、あげる練習をせず、もらう練習ばかりしている。家族、兄弟、友達など、大事な人の未来の幸せのために頑張れる人は、出会う人すべてに<strong>感謝できる人</strong>になる。</p>
+
+  <!-- 6-2 -->
+  <h3>思考癖② 最初に「なる」</h3>
+  <div class="two">
+    <div class="panel bad">
+      <h4>ふつうに教わる順番</h4>
+      <div class="flow" style="margin:6px 0 0"><div class="step">やる</div><span class="arr">▶</span><div class="step">得る</div><span class="arr">▶</span><div class="step">なる</div></div>
+    </div>
+    <div class="panel good">
+      <h4>本当の順番</h4>
+      <div class="flow" style="margin:6px 0 0"><div class="step good">なる</div><span class="arr">▶</span><div class="step">やる</div><span class="arr">▶</span><div class="step">得る</div></div>
+    </div>
+  </div>
+  <p style="font-size:15.5px">最初に「なる」と決めれば、その人にふさわしいものが得られる。</p>
+
+  <div class="ex">
+    <p class="ex-t">小田島さん（講師の20年来の知り合い）</p>
+    <div class="flow">
+      <div class="step">中学校の先生<small>生徒に「夢を持って頑張れ」と言う</small></div><span class="arr">▶</span>
+      <div class="step bad">言っている自分に夢がない違和感</div><span class="arr">▶</span>
+      <div class="step">退職してアフリカの国へ</div><span class="arr">▶</span>
+      <div class="step key">「ベースボール」ではなく「野球」を教える<small>グラウンドに一礼するところから</small></div>
+    </div>
+    <p class="quote" style="margin-bottom:4px">毎日言わせた言葉：「私はチャンピオンとして振る舞う。なぜなら、私はチャンピオンだから」</p>
+  </div>
+
+  <div class="ex">
+    <p class="ex-t">金メダリスト</p>
+    <p>オリンピックで金メダルを取り、目を輝かせた子どもたちの前で話すとしたら。今と同じ振る舞い、同じ話し方、同じ過ごし方をするだろうか。</p>
+  </div>
+
+  <div class="ex">
+    <p class="ex-t">社長</p>
+    <div class="two" style="margin-bottom:4px">
+      <div class="panel bad"><h4>よくある考え</h4><div class="flow" style="margin:4px 0 0;gap:4px"><div class="step" style="flex-basis:60px">平社員</div><span class="arr">▶</span><div class="step" style="flex-basis:60px">課長</div><span class="arr">▶</span><div class="step" style="flex-basis:60px">部長</div><span class="arr">▶</span><div class="step" style="flex-basis:60px">役員</div><span class="arr">▶</span><div class="step" style="flex-basis:60px">社長</div></div><ul style="margin-top:8px"><li>社長になってから社長らしくする</li></ul></div>
+      <div class="panel good"><h4>実際の経営者</h4><ul><li>講師が知る経営者は、みんな<strong>最初から社長</strong></li><li>活躍する作家は、最初から作家</li></ul></div>
+    </div>
+  </div>
+
+  <!-- 6-3 -->
+  <h3>思考癖③ 下位互換をやめ、上位互換を選ぶ</h3>
+  <div class="two">
+    <div class="panel bad"><h4>下位互換</h4><ul><li>「ほぼ同じ結果なら、楽な方でよくない？」</li></ul></div>
+    <div class="panel good"><h4>上位互換</h4><ul><li>「どうせやるなら、人よりその先まで」</li></ul></div>
+  </div>
+
+  <p style="font-weight:900;margin-top:18px">小さな選択を1日10回くり返すと</p>
+  <div class="count">
+    <div><b>10回</b><span>1日</span></div>
+    <div><b>3,650回</b><span>1年</span></div>
+    <div><b>36,500回</b><span>10年</span></div>
+  </div>
+
+  <figure class="fig">
+    <div class="stack">
+      <div class="one"><div class="sheet" aria-hidden="true"></div>紙1枚<br>薄くて誰でも破れる</div>
+      <div class="many"><div class="pile" aria-hidden="true"></div>500枚（電話帳）<br>1日1枚でも1年半で届く</div>
+    </div>
+    <figcaption>1枚ずつの積み重ねで、どうあがいても逆転できない差がつく。人生は一発逆転ではなく、小さな判断の積み重ね。</figcaption>
+  </figure>
+
+  <div class="scroll">
+  <table class="cmp">
+    <thead><tr><th scope="col">場面</th><th scope="col" class="me">下位互換</th><th scope="col" class="you">上位互換</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">本を読む</th>
+        <td class="me">「同じ内容の映画じゃダメ？」「AIの要約でいい？」「5時間かかる本も、YouTubeの15分要約を2倍速なら7分」</td>
+        <td class="you">本は、頭の中で自分で映像を作り、自分の意思がないと1行も進まない。映画や動画は、ぼーっとしていても進む。内容はどうせ忘れる。大事なのは、どんな経験をしたか。</td></tr>
+      <tr><th scope="row">映画『国宝』</th>
+        <td class="me">勧められたから、見る。</td>
+        <td class="you">「絶対見て」と勧められ、講師は見る前にまず小説を読もうと考えた。</td></tr>
+      <tr><th scope="row">作文</th>
+        <td class="me">AIに書かせる。大学教授は「レポートがAIだらけ」と言う。小学生らしい間違いまでAIに入れさせる例もある。</td>
+        <td class="you">原稿用紙3枚を前に、書き出しだけで1週間迷う。その苦しさにこそ意味がある。講師は作文コンクールの審査委員長として、人が書いたかを見極めなければならない。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">みんなが下位互換を選び、指導者まで勧める時代。一流の人が少なくなっている。逆に言えば、<strong>この思考癖を持つ人は活躍しやすい時代</strong>でもある。</p>
+
+  <h3>一流は、最初から一流</h3>
+  <div class="ex">
+    <p class="ex-t">美容師だった講師の両親（愛媛）</p>
+    <p>両親はともに美容の全国大会で優勝。東京なら女優や雑誌の仕事が来るほどだが、愛媛の町で店を開き、地域のマダムや弟子入り希望者が集まった。弟子の最初の仕事は誰でもできることばかり。</p>
+    <div class="chips"><span class="chip">切った髪を掃く</span><span class="chip">タオルを洗って干す</span><span class="chip">決まった形に畳む</span><span class="chip">パーマのロッドを渡す（ヘルプ）</span></div>
+    <p class="quote" style="margin-bottom:4px">父の口癖「誰でもできる仕事こそ、誰がやるかで差が出る」</p>
+  </div>
+
+  <figure class="fig">
+    <p style="font-weight:900;margin:0 0 4px">同じ「誰でもできる仕事」を頼んでも…</p>
+    <div class="spec">
+      <div class="spec-bar" aria-hidden="true"></div>
+      <div class="spec-labels">
+        <div>「これぐらいでいいよね」</div>
+        <div>文句はないが、もう少し頑張ってほしい</div>
+        <div>ここまではやってほしい、に届く</div>
+        <div>「ここまでやるの！？」<br>＝誰にもできない領域</div>
+      </div>
+    </div>
+    <figcaption>誰でもできることを、誰にもできないところまでやる人が一流。そこに「自分にしかできないこと」が生まれる。</figcaption>
+  </figure>
+
+  <div class="two">
+    <div class="panel bad"><h4>一流とは限らない</h4><ul><li>Instagramで話題のカリスマ美容師</li><li>技術はあっても、20〜30年後に人を幸せにしているかはわからない</li></ul></div>
+    <div class="panel good"><h4>一流の始まり方</h4><ul><li>タオルを畳む段階から「私は一流として振る舞う。なぜなら一流だから」</li><li>その人が将来社長になっても、誰も不思議に思わない</li></ul></div>
+  </div>
+  <p style="font-size:15.5px">学校の先生は1年目から担任を任される珍しい職業。多くの仕事は、誰でもできることから始まる。</p>
+</section>
+
+<!-- ============ 7 ============ -->
+<section class="ch" id="c7">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">7</span><h2>「賢い選択」が<br>無気力を生む<small>少ない労力で、人より良い結果を？</small></h2></div>
+
+  <div class="two">
+    <div class="panel good"><h4>小さい頃</h4><ul><li>好奇心の塊。何でも触りたがり、やってみたがる</li></ul></div>
+    <div class="panel bad"><h4>中学生頃</h4><ul><li>「これ触っていい？」「これやっていい？」と許可を求める</li><li>好奇心の塊が消えている</li></ul></div>
+  </div>
+  <p>この間にあるのが、<strong>「できるだけ少ない労力で、できるだけいい結果を得るのが賢い」</strong>という思考癖。そんなうまい話はないと多くの大人は知っているが、「ありますよ」と言って儲ける人がいる。</p>
+
+  <div class="ex">
+    <p class="ex-t">参考書の売り文句</p>
+    <div class="two" style="margin-bottom:4px">
+      <div class="panel"><h4>「偏差値20が72に！」</h4></div>
+      <div class="panel"><h4>「600ページと同じ内容が、たった200ページで」</h4></div>
+    </div>
+  </div>
+
+  <figure class="fig">
+    <div class="scroll">
+    <svg viewBox="0 0 700 220" role="img" aria-label="英語が伸びない、塾を変える、通信教育、家庭教師と渡り歩き、自信をなくして無気力になる" style="min-width:560px">
+      <path d="M40 170 L160 60 L280 170 L400 60 L520 170 L640 80" fill="none" stroke="var(--beni)" stroke-width="3" stroke-dasharray="7 6"/>
+      <g font-size="13.5" font-weight="700" text-anchor="middle">
+        <rect x="-10" y="176" width="110" height="40" rx="10" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="45" y="193">英語が伸びない</text><text x="45" y="209" font-size="12">「方法が悪い？」</text>
+        <rect x="100" y="14" width="120" height="40" rx="10" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="160" y="31">友達の塾に変える</text><text x="160" y="47" font-size="12">親に相談して転塾</text>
+        <rect x="225" y="176" width="110" height="40" rx="10" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="280" y="193">合わない気がする</text><text x="280" y="209" font-size="12">塾じゃない？</text>
+        <rect x="345" y="14" width="110" height="40" rx="10" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="400" y="31">通信教育</text><text x="400" y="47" font-size="12">1ヶ月で続かない</text>
+        <rect x="465" y="176" width="110" height="40" rx="10" fill="var(--paper)" class="stroke-ink" stroke-width="2"/><text x="520" y="193">家庭教師</text><text x="520" y="209" font-size="12">誰かに見てもらう</text>
+        <rect x="580" y="40" width="112" height="40" rx="10" fill="var(--soft-beni)" stroke="var(--beni)" stroke-width="2"/><text x="636" y="57" style="fill:var(--beni)">自信をなくす</text><text x="636" y="73" font-size="12" style="fill:var(--beni)">→ 無気力</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>「もっといいやり方があるかも」と探し続けるほど、今の自分のやり方に自信をなくしていく。</figcaption>
+  </figure>
+  <p class="quote">ベストの選択をしたい、という思いが<br>人を無気力にする。</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section class="ch" id="c8">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">8</span><h2>昨日より1%でも成長できるなら、<br>何でもやる<small>真逆の考え方を持つ</small></h2></div>
+
+  <p>人は、努力と成果を<strong>比例（一次関数）</strong>で見積もる。「3日で5点上がるなら、6日で10点」。でも実際の成長は<strong>指数関数</strong>。3ヶ月英語をやっても偏差値がピクリとも動かない時期があるのは、そのため。</p>
+
+  <figure class="fig">
+    <svg id="chart" viewBox="0 0 620 340" role="img" aria-label="1年間の成長。思っている成長は直線、実際の成長は最初はほとんど伸びず、後半に急に伸びて37倍になる曲線。"></svg>
+    <figcaption><span style="color:var(--beni)">■ 思っている成長（直線）</span>　<span style="color:var(--ai)">■ 実際の成長（毎日1%）</span>　前半の「伸びない時期」でやめてしまう人が多い。</figcaption>
+  </figure>
+
+  <div class="grow">
+    <p style="font-weight:900;margin:0">毎日1%ずつ成長すると、何倍になる？</p>
+    <div class="grow-out" aria-live="polite">
+      <span class="big" id="gv">37.8倍</span>
+      <span class="days" id="gd">365日（1年）</span>
+    </div>
+    <label for="gs" style="font-size:14px;font-weight:700">日数を動かしてみる</label>
+    <input type="range" id="gs" min="0" max="1825" step="1" value="365">
+    <div class="presets" role="group" aria-label="日数の例">
+      <button type="button" data-d="90">3ヶ月</button>
+      <button type="button" data-d="365" aria-pressed="true">1年</button>
+      <button type="button" data-d="1095">3年</button>
+      <button type="button" data-d="1825">5年</button>
+    </div>
+  </div>
+  <div class="count">
+    <div><b>約37倍</b><span>1年</span></div>
+    <div><b>約5万倍</b><span>3年</span></div>
+    <div><b>7000万倍超</b><span>5年</span></div>
+  </div>
+  <p>同じスタート地点でも、5年後には誰も追いつけない差になる。これが、一番早く確実に成長する方法。</p>
+
+  <h3>気概のある人だけが、教えてもらえる</h3>
+  <div class="ex">
+    <p class="ex-t">バスケ部の先輩と後輩</p>
+    <p>講師の塾の生徒は、3歳頃から家のバスケットゴールで毎日練習し、高校3年で選抜に選ばれた。そこへ高校からバスケを始めた1年生が来る。</p>
+    <div class="talk">
+      <div class="bub l"><span class="who">1年生</span>先輩のプレーに感動しました！僕は高校から始めたので2年しかありません。早く先輩みたいになる方法はありますか？</div>
+      <div class="bub r bad"><span class="who">先輩（心の中）</span>無理に決まってる。…でも言えばパワハラになる。「頑張れ」「諦めなければ夢は叶う」でかわそう。</div>
+      <div class="bub l good"><span class="who">もし1年生がこう言ったら</span>先輩みたいになれるとは思いません。でも、昨日の自分より1ミリでも成長できるなら何でもやります。何をやったらいいですか？</div>
+      <div class="bub r ai"><span class="who">先輩</span>大変かもしれないけど、これはやった方がいいと思うよ。</div>
+    </div>
+  </div>
+  <div class="ex">
+    <p class="ex-t">作家になりたい人</p>
+    <p>講師は作家デビュー2年、3年でベストセラーを出した。「どうすればそうなれますか」と聞かれて「まずこの本を読んでみては」と勧める。そこで「YouTube要約でいいですか？」と返したら、それで終わり。<strong>人はこうしてチャンスを逃している。</strong></p>
+  </div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section class="ch" id="c9">
+  <div class="ch-head"><span class="ch-num" aria-hidden="true">9</span><h2>小欲を捨てて、大欲に立つ<small>二宮尊徳の言葉</small></h2></div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 640 230" role="img" aria-label="小欲は自分のための欲。大欲は自分の知識・技術・才能を多くの人の幸せのために生かすこと。">
+      <circle cx="120" cy="115" r="62" fill="var(--soft-beni)" stroke="var(--beni)" stroke-width="3"/>
+      <text x="120" y="108" text-anchor="middle" font-size="20" font-weight="900" style="fill:var(--beni)">小欲</text>
+      <text x="120" y="132" text-anchor="middle" font-size="13" font-weight="700">自分のための欲</text>
+      <path d="M195 115 H300" stroke="var(--ink)" stroke-width="3"/><path d="M292 106 l12 9 -12 9" fill="none" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="450" cy="115" r="105" fill="var(--soft-nae)" stroke="var(--nae)" stroke-width="3"/>
+      <text x="450" y="90" text-anchor="middle" font-size="26" font-weight="900" style="fill:var(--nae)">大欲</text>
+      <text x="450" y="118" text-anchor="middle" font-size="13.5" font-weight="700">知識・技術・才能を</text>
+      <text x="450" y="138" text-anchor="middle" font-size="13.5" font-weight="700">世の中の多くの人の</text>
+      <text x="450" y="158" text-anchor="middle" font-size="13.5" font-weight="700">幸せのために生かす</text>
+      <text x="120" y="205" text-anchor="middle" font-size="12.5">こんな生活・新しい車・この職業…</text>
+    </svg>
+  </figure>
+
+  <div class="ex">
+    <p class="ex-t">推しのアーティスト</p>
+    <p>職業に貴賤はない。コンビニのレジ打ちも尊い仕事。それでも、推しのアーティストに望むのは？</p>
+    <div class="two" style="margin-bottom:4px">
+      <div class="panel"><h4>コンビニでレジを打ってほしい？</h4></div>
+      <div class="panel good"><h4>新しい曲を作ってほしい？</h4></div>
+    </div>
+    <p>アーティストは、自分にできることで多くの人を救おうとしている。<strong>そのために学問がある。</strong></p>
+  </div>
+
+  <div class="final">
+    <p class="big">皆さんが幸せにならなければ、幸せになれない人がいる。</p>
+    <p>自分の中に何かを成し遂げる力を見つけ、それを世の中に届けていかなければ、幸せになれない人がいる。</p>
+    <p style="margin:0"><strong>皆さんの命は、必ず未来の誰かの幸せのためにある。</strong></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <p>閉会で司会は「家でゆっくりしたかった人も、ここに来た時点で上位互換を選んだ。今日が人生で一番若い日。明日1%成長できるように頑張りたい」と締めた。主催の社長は講師の本をAudibleですべて聴き、人生の羅針盤にしているという。学生には講師からプレゼントが手渡された。</p>
+</footer>
+
+<script>
+(function(){
+  var svg=document.getElementById('chart');
+  var NS='http://www.w3.org/2000/svg';
+  var L=56,R=600,T=20,B=290,MAXY=40;
+  function x(d){return L+(R-L)*d/365}
+  function y(v){return B-(B-T)*v/MAXY}
+  function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;svg.appendChild(e);return e}
+  // grid & axes
+  [0,10,20,30,40].forEach(function(v){
+    el('path',{d:'M'+L+' '+y(v)+' H'+R,stroke:'var(--ink)','stroke-opacity':v?0.18:1,'stroke-width':v?1:2});
+    el('text',{x:L-8,y:y(v)+5,'text-anchor':'end','font-size':13},v+'倍');
+  });
+  [0,90,180,270,365].forEach(function(d){
+    el('text',{x:x(d),y:B+22,'text-anchor':'middle','font-size':13},d===0?'0日':(d===365?'1年':Math.round(d/30.4)+'ヶ月'));
+  });
+  el('path',{d:'M'+L+' '+T+' V'+B,stroke:'var(--ink)','stroke-width':2});
+  var endV=Math.pow(1.01,365);
+  // area between
+  var curve=[],lin=[];
+  for(var d=0;d<=365;d+=5){curve.push([x(d),y(Math.pow(1.01,d))]);lin.push([x(d),y(1+(endV-1)*d/365)])}
+  var poly=lin.map(function(p){return p.join(',')}).concat(curve.slice().reverse().map(function(p){return p.join(',')})).join(' ');
+  el('polygon',{points:poly,fill:'var(--hi)','fill-opacity':0.35,'class':'area'});
+  el('path',{d:'M'+x(0)+' '+y(1)+' L'+x(365)+' '+y(endV),stroke:'var(--beni)','stroke-width':3,'stroke-dasharray':'8 6',fill:'none'});
+  var dstr='M'+curve.map(function(p){return p.join(' ')}).join(' L')+' L'+x(365)+' '+y(endV);
+  el('path',{d:dstr,stroke:'var(--ai)','stroke-width':4,fill:'none','class':'draw'});
+  el('text',{x:x(150),y:y(10)-4,'text-anchor':'middle','font-size':14,'font-weight':900},'思ったほど伸びない時期');
+  el('text',{x:x(150),y:y(10)+14,'text-anchor':'middle','font-size':12.5},'（3ヶ月で思うのは約10倍、実際は約2.4倍）');
+  el('text',{x:x(365)-6,y:y(endV)-10,'text-anchor':'end','font-size':15,'font-weight':900,style:'fill:var(--ai)'},'1年で約37倍');
+  var mk=el('circle',{cx:x(365),cy:y(endV),r:8,fill:'var(--ai)',stroke:'var(--paper)','stroke-width':3});
+
+  var s=document.getElementById('gs'),gv=document.getElementById('gv'),gd=document.getElementById('gd');
+  var btns=[].slice.call(document.querySelectorAll('.presets button'));
+  function fmt(v){
+    if(v<100)return v.toFixed(v<10?2:1)+'倍';
+    if(v<10000)return Math.round(v).toLocaleString('ja-JP')+'倍';
+    if(v<1e8)return (v/1e4).toFixed(v<1e5?1:0).replace(/\.0$/,'')+'万倍';
+    return (v/1e8).toFixed(1)+'億倍';
+  }
+  function dayLabel(n){
+    if(n<365)return n+'日（約'+Math.round(n/30.4)+'ヶ月）';
+    var yv=n/365;return n+'日（約'+(Math.round(yv*10)/10)+'年）';
+  }
+  function upd(){
+    var n=+s.value,v=Math.pow(1.01,n);
+    gv.textContent=fmt(v);gd.textContent=dayLabel(n);
+    if(n<=365){mk.style.display='';mk.setAttribute('cx',x(n));mk.setAttribute('cy',y(v))}else{mk.style.display='none'}
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.d===n))});
+  }
+  s.addEventListener('input',upd);
+  btns.forEach(function(b){b.addEventListener('click',function(){s.value=b.dataset.d;upd()})});
+  upd();
+})();
+</script>
+</body>
+</html>
